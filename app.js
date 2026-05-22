@@ -12,6 +12,7 @@ const promptTime = document.querySelector("#prompt-time");
 const generateButton = document.querySelector("#generate-button");
 const copyButton = document.querySelector("#copy-button");
 const remixButton = document.querySelector("#remix-button");
+const historyCount = document.querySelector("#history-count");
 const historyList = document.querySelector("#history-list");
 const toast = document.querySelector("#toast");
 
@@ -189,6 +190,8 @@ function addHistory(prompt) {
     listItem.textContent = item.split("\n")[0];
     historyList.append(listItem);
   });
+
+  historyCount.textContent = String(history.length);
 }
 
 async function copyPrompt() {

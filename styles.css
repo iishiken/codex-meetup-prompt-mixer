@@ -254,16 +254,69 @@ select:focus-visible {
 }
 
 .side-panel {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
   padding: 24px;
+}
+
+.history-details {
+  display: grid;
+  gap: 16px;
+}
+
+.history-details summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.history-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.history-details summary::after {
+  content: "+";
+  width: 30px;
+  height: 30px;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border: 1px solid rgba(0, 122, 122, 0.24);
+  border-radius: 999px;
+  color: var(--accent-strong);
+  background: rgba(216, 243, 236, 0.72);
+  font-weight: 900;
+}
+
+.history-details[open] summary::after {
+  content: "-";
+}
+
+.history-title {
+  display: block;
+  color: var(--ink);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.history-count {
+  min-width: 28px;
+  height: 28px;
+  display: inline-grid;
+  place-items: center;
+  margin-left: auto;
+  border-radius: 999px;
+  color: white;
+  background: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 900;
 }
 
 .history-list {
   display: grid;
   gap: 12px;
-  margin: 0;
+  margin: 18px 0 0;
   padding: 0;
   list-style: none;
 }

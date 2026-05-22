@@ -94,12 +94,17 @@
         </div>
       </section>
 
-      <aside class="side-panel" aria-labelledby="history-title">
-        <div>
-          <p class="eyebrow">Session</p>
-          <h2 id="history-title">最近のお題</h2>
-        </div>
-        <ol id="history-list" class="history-list"></ol>
+      <aside class="side-panel">
+        <details class="history-details">
+          <summary>
+            <span>
+              <span class="eyebrow">Session</span>
+              <span class="history-title" id="history-title">最近のお題</span>
+            </span>
+            <span class="history-count" id="history-count">0</span>
+          </summary>
+          <ol id="history-list" class="history-list"></ol>
+        </details>
       </aside>
     </main>
 

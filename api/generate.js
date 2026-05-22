@@ -70,7 +70,7 @@ export default async function handler(req, res) {
       Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
       "Content-Type": "application/json",
       "HTTP-Referer": process.env.PUBLIC_SITE_URL || "https://example.com",
-      "X-OpenRouter-Title": "Live Coding Prompt Mixer",
+      "X-OpenRouter-Title": "Vibe Coding Prompt Mixer",
     },
     body: JSON.stringify({
       model: process.env.OPENROUTER_MODEL || "google/gemini-2.5-flash",
@@ -78,8 +78,8 @@ export default async function handler(req, res) {
         {
           role: "system",
           content: [
-            "あなたはCodex Meetupのライブコーディング司会者です。",
-            "スマホからCodexへそのまま渡せる、ライブコーディングのお題を日本語で1つ作ってください。",
+            "あなたはCodex Meetupのvibeコーディング案内役です。",
+            "スマホからCodexへそのまま渡せる、vibeコーディングのお題を日本語で1つ作ってください。",
             "必ずJSONだけを返してください。Markdown、説明、コードフェンスは不要です。",
             "JSON schema: {\"challenge\":\"短いお題名\",\"difficulty\":\"初級|中級|上級\",\"duration\":\"5分|10分|15分\",\"prompt\":\"Codexに渡す具体的な指示文\"}",
           ].join("\n"),
@@ -122,7 +122,7 @@ export default async function handler(req, res) {
     });
   } catch {
     return res.status(200).json({
-      challenge: "ライブコーディングお題",
+      challenge: "vibeコーディングお題",
       difficulty,
       duration: difficulty.includes("5") ? "5分" : "10分",
       prompt: content,

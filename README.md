@@ -1,6 +1,6 @@
-# Live Coding Prompt Mixer
+# Vibe Coding Prompt Mixer
 
-Codex Meetup向けのライブコーディングお題ジェネレーターです。
+Codex Meetup向けのvibeコーディングお題ジェネレーターです。
 
 ## ファイル構成
 

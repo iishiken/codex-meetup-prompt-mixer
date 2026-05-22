@@ -20,7 +20,7 @@ const API_ENDPOINT = window.PROMPT_MIXER_API_URL || "";
 const themes = {
   meetup: [
     "Codex Meetupの参加者が、今日試したいAI活用アイデアを投稿して一覧できるミニアプリ",
-    "ライブ中に出た質問を記録し、未回答と回答済みで切り替えられるQ&Aボード",
+    "vibeコーディング中に出た質問を記録し、未回答と回答済みで切り替えられるQ&Aボード",
     "懇親会で使えるトークテーマをランダム表示し、気に入ったものを保存できるページ",
   ],
   personal: [
@@ -34,7 +34,7 @@ const themes = {
     "短い学習ログを入力すると、次に試す小さな課題を提案するアプリ",
   ],
   playful: [
-    "ライブコーディングのお題をルーレット風に決めるミニアプリ",
+    "vibeコーディングのお題をルーレット風に決めるミニアプリ",
     "会場の空気に合わせて、デモ用アプリ名をランダム生成するネーミングマシン",
     "制限時間と縛り条件を組み合わせて、即興開発チャレンジを作るゲーム",
   ],
@@ -165,7 +165,7 @@ async function buildPrompt(forceNext = false) {
 }
 
 function renderResult(result) {
-  const challenge = result.challenge || result.title || "ライブコーディングお題";
+  const challenge = result.challenge || result.title || "vibeコーディングお題";
   const difficulty = result.difficulty || labels[difficultySelect.value];
   const duration = result.duration || result.time || "10分";
   const prompt = result.prompt || result.text || challenge;

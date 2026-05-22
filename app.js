@@ -1,3 +1,4 @@
+const appShell = document.querySelector(".app-shell");
 const form = document.querySelector("#prompt-form");
 const themeSelect = document.querySelector("#theme");
 const difficultySelect = document.querySelector("#difficulty");
@@ -12,6 +13,7 @@ const promptTime = document.querySelector("#prompt-time");
 const generateButton = document.querySelector("#generate-button");
 const copyButton = document.querySelector("#copy-button");
 const remixButton = document.querySelector("#remix-button");
+const historyDetails = document.querySelector(".history-details");
 const historyCount = document.querySelector("#history-count");
 const historyList = document.querySelector("#history-list");
 const toast = document.querySelector("#toast");
@@ -219,9 +221,15 @@ function showToast(message) {
   }, 1800);
 }
 
+function syncHistoryPanelState() {
+  appShell.classList.toggle("history-collapsed", !historyDetails.open);
+}
+
 generateButton.addEventListener("click", () => buildPrompt());
 remixButton.addEventListener("click", () => buildPrompt(true));
 copyButton.addEventListener("click", copyPrompt);
 form.addEventListener("change", () => buildLocalPrompt());
+historyDetails.addEventListener("toggle", syncHistoryPanelState);
 
+syncHistoryPanelState();
 buildPrompt();

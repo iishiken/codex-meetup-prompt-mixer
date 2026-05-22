@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Live Coding Prompt Mixer</title>
+    <meta
+      name="description"
+      content="Codex Meetup向けのライブコーディングお題ジェネレーター"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="generator" aria-labelledby="app-title">
+        <div class="intro">
+          <p class="eyebrow">Codex Meetup</p>
+          <h1 id="app-title">Live Coding Prompt Mixer</h1>
+          <p class="lead">
+            ページを開くたびに、スマホからCodexへ渡せるライブコーディングのお題を作ります。
+          </p>
+        </div>
+
+        <form class="control-grid" id="prompt-form">
+          <label>
+            テーマ
+            <select id="theme">
+              <option value="meetup">Meetup支援</option>
+              <option value="personal">個人ページ</option>
+              <option value="learning">学習ツール</option>
+              <option value="playful">遊べるミニアプリ</option>
+              <option value="data">データ可視化</option>
+            </select>
+          </label>
+
+          <label>
+            難易度
+            <select id="difficulty">
+              <option value="easy">5分で見える</option>
+              <option value="medium">10分で育つ</option>
+              <option value="hard">改善余地あり</option>
+            </select>
+          </label>
+
+          <label>
+            技術
+            <select id="stack">
+              <option value="static">HTML/CSS/JS</option>
+              <option value="react">React</option>
+              <option value="next">Next.js</option>
+              <option value="api">API連携あり</option>
+            </select>
+          </label>
+
+          <label>
+            見た目
+            <select id="tone">
+              <option value="clean">明るく実用的</option>
+              <option value="editorial">イベント感強め</option>
+              <option value="minimal">ミニマル</option>
+              <option value="neon">デモ映え</option>
+            </select>
+          </label>
+        </form>
+
+        <div class="prompt-panel" aria-live="polite">
+          <div class="prompt-meta">
+            <span id="prompt-tag">Meetup支援</span>
+            <span id="prompt-time">5分で見える</span>
+          </div>
+          <div class="result-grid">
+            <article>
+              <span>お題</span>
+              <strong id="challenge-output">生成中...</strong>
+            </article>
+            <article>
+              <span>難易度</span>
+              <strong id="difficulty-output">-</strong>
+            </article>
+            <article>
+              <span>時間</span>
+              <strong id="duration-output">-</strong>
+            </article>
+          </div>
+          <p id="prompt-output"></p>
+        </div>
+
+        <div class="actions">
+          <button class="primary-action" id="generate-button" type="button">
+            生成する
+          </button>
+          <button id="copy-button" type="button">コピー</button>
+          <button id="remix-button" type="button">少し変える</button>
+        </div>
+      </section>
+
+      <aside class="side-panel" aria-labelledby="history-title">
+        <div>
+          <p class="eyebrow">Session</p>
+          <h2 id="history-title">最近のお題</h2>
+        </div>
+        <ol id="history-list" class="history-list"></ol>
+      </aside>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+      window.PROMPT_MIXER_API_URL = window.PROMPT_MIXER_API_URL || "";
+    </script>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
